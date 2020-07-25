@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:two_wish/home_page.dart';
+import 'package:two_wish/screens/home_page.dart';
 
 void main() {
   runApp(MyApp());

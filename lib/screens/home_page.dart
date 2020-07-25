@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'drawer.dart';
+import '../components/grid_card.dart';
+import '../drawer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -26,17 +27,7 @@ class _HomePageState extends State<HomePage> {
               child: GridView.count(
                 crossAxisCount: 2,
                 children: List.generate(50, (index) {
-                  return Container(
-                    padding: EdgeInsets.all(5.0),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20.0),
-                        ),
-                      ),
-                      color: Colors.blue,
-                    ),
-                  );
+                  return GridCard();
                 }),
               )),
         ),
