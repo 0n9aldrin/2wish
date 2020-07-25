@@ -22,8 +22,23 @@ class _HomePageState extends State<HomePage> {
       charityScrollBars.add(
         Scrollbar(
           child: Container(
-            child: Text("Charity $x"),
-          ),
+              padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+              child: GridView.count(
+                crossAxisCount: 2,
+                children: List.generate(50, (index) {
+                  return Container(
+                    padding: EdgeInsets.all(5.0),
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20.0),
+                        ),
+                      ),
+                      color: Colors.blue,
+                    ),
+                  );
+                }),
+              )),
         ),
       );
     }
