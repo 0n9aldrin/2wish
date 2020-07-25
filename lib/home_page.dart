@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'drawer.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -38,6 +40,7 @@ class _HomePageState extends State<HomePage> {
       child: DefaultTabController(
         length: 5,
         child: Scaffold(
+          drawer: drawer,
           appBar: AppBar(
             title: Text("2WISH.JKT"),
             bottom: TabBar(
