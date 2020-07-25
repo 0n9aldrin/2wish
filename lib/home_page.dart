@@ -13,23 +13,27 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> charityTabs = [
-      Tab(
-        text: "Charity 1",
-      ),
-      Tab(
-        text: "Charity 2",
-      ),
-      Tab(
-        text: "Charity 3",
-      ),
-      Tab(
-        text: "Charity 4",
-      ),
-      Tab(
-        text: "Charity 5",
-      ),
-    ];
+    List<Widget> charityTabs = [];
+    List<Widget> charityScrollBars = [];
+
+    for (int x = 0; x < 5; x++) {
+      charityScrollBars.add(
+        Scrollbar(
+          child: Container(
+            child: Text("Charity $x"),
+          ),
+        ),
+      );
+    }
+
+    for (int x = 0; x < 5; x++) {
+      charityTabs.add(
+        Tab(
+          text: "Charity $x",
+        ),
+      );
+    }
+
     return SafeArea(
       child: DefaultTabController(
         length: 5,
@@ -42,33 +46,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           body: TabBarView(
-            children: <Widget>[
-              Scrollbar(
-                child: Container(
-                  child: Text("Charity 1"),
-                ),
-              ),
-              Scrollbar(
-                child: Container(
-                  child: Text("Charity 2"),
-                ),
-              ),
-              Scrollbar(
-                child: Container(
-                  child: Text("Charity 3"),
-                ),
-              ),
-              Scrollbar(
-                child: Container(
-                  child: Text("Charity 4"),
-                ),
-              ),
-              Scrollbar(
-                child: Container(
-                  child: Text("Charity 5"),
-                ),
-              ),
-            ],
+            children: charityScrollBars,
           ),
         ),
       ),
