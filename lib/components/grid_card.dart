@@ -58,7 +58,6 @@ class GridCard extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: LinearPercentIndicator(
-                  width: 130,
                   lineHeight: 14,
                   percent: 0.75,
                   center: Text(

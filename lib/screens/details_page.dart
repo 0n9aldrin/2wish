@@ -14,6 +14,10 @@ class _DetailsPageState extends State<DetailsPage> {
   double rating = 5;
   @override
   Widget build(BuildContext context) {
+    double deviceHeight = MediaQuery.of(context).size.height;
+    double deviceWidth = MediaQuery.of(context).size.width;
+    print(deviceHeight);
+    print(deviceWidth);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -37,7 +41,6 @@ class _DetailsPageState extends State<DetailsPage> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
                   child: LinearPercentIndicator(
-                    width: 300,
                     lineHeight: 20,
                     percent: 0.75,
                     center: Text(
