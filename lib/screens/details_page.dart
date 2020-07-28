@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:two_wish/services/database.dart';
 
 class DetailsPage extends StatefulWidget {
   final String title;
@@ -12,6 +13,15 @@ class DetailsPage extends StatefulWidget {
 
 class _DetailsPageState extends State<DetailsPage> {
   double rating = 5;
+  final myController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     double deviceHeight = MediaQuery.of(context).size.height;
@@ -71,6 +81,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: TextField(
+                    controller: myController,
                     maxLines: 3,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -98,7 +109,13 @@ class _DetailsPageState extends State<DetailsPage> {
                   child: Padding(
                     padding: EdgeInsets.only(right: 10),
                     child: FloatingActionButton.extended(
-                      onPressed: null,
+                      onPressed: () async {
+                        DatabaseService().updateRequestsData(
+                            phoneNumber: '+6281284538316',
+                            itemId: '00001',
+                            donationAmount: rating.round(),
+                            note: myController.text);
+                      },
                       icon: Icon(Icons.favorite),
                       label: Text("Donate"),
                     ),
