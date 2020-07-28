@@ -1,24 +1,38 @@
 import 'package:flutter/material.dart';
 
-Drawer drawer = Drawer(
-  child: ListView(
-    // Important: Remove any padding from the ListView.
-    padding: EdgeInsets.zero,
-    children: <Widget>[
-      DrawerHeader(
-        child: Text('Drawer Header'),
-        decoration: BoxDecoration(
-          color: Colors.blue,
-        ),
+class DrawerWidget extends StatelessWidget {
+  final BuildContext context;
+  DrawerWidget({this.context});
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        // Important: Remove any padding from the ListView.
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            child: Text('Drawer Header'),
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+          ),
+          ListTile(
+            leading: Icon(Icons.home),
+            title: Text('Donate to organisation'),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.shopping_basket),
+            title: Text('Donate item'),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/second');
+            },
+          ),
+        ],
       ),
-      ListTile(
-        title: Text('Item 1'),
-        onTap: () {},
-      ),
-      ListTile(
-        title: Text('Item 2'),
-        onTap: () {},
-      ),
-    ],
-  ),
-);
+    );
+  }
+}

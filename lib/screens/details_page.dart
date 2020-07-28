@@ -33,7 +33,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     color: Colors.white,
                     image: DecorationImage(
                         image: NetworkImage(
-                            "https://lp2.hm.com/hmgoepprod?set=quality[79],source[/f5/c4/f5c4939114fcc731acfada4ebb68f1da42cad909.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[m],hmver[1]&call=url[file:/product/main]"),
+                            "https://pyxis.nymag.com/v1/imgs/d19/fc1/0de89f03dfa39fa0ff8b1fe838532f153b-031231-04.rsquare.w600.jpg"),
                         fit: BoxFit.fill),
                   ),
                 ),
@@ -82,6 +82,8 @@ class _DetailsPageState extends State<DetailsPage> {
                 Slider(
                   min: 0,
                   max: 23,
+                  inactiveColor: Colors.blue,
+                  activeColor: Colors.blue,
                   value: rating,
                   onChanged: (newRating) {
                     setState(() {

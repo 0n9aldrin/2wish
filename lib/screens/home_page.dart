@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
       child: DefaultTabController(
         length: 5,
         child: Scaffold(
-          drawer: drawer,
+          drawer: DrawerWidget(context: context),
           appBar: AppBar(
             title: Text("2WISH.JKT"),
             bottom: TabBar(
