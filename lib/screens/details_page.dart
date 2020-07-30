@@ -110,11 +110,18 @@ class _DetailsPageState extends State<DetailsPage> {
                     padding: EdgeInsets.only(right: 10),
                     child: FloatingActionButton.extended(
                       onPressed: () async {
-                        DatabaseService().updateRequestsData(
+                        DatabaseService databaseService = DatabaseService();
+                        int requestsLength =
+                            await databaseService.getRequestsLength();
+                        databaseService.updateRequestsData(
+                            documentID: (requestsLength + 1).toString(),
                             phoneNumber: '+6281284538316',
                             itemId: '00001',
                             donationAmount: rating.round(),
                             note: myController.text);
+                        databaseService.updateRequestNumber(
+                            requestNumber: requestsLength + 1);
+                        Navigator.pop(context);
                       },
                       icon: Icon(Icons.favorite),
                       label: Text("Donate"),
