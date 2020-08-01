@@ -3,9 +3,16 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 'package:two_wish/screens/details_page.dart';
 
 class GridCard extends StatelessWidget {
-  const GridCard({
-    Key key,
-  }) : super(key: key);
+  final String imageUrl;
+  final String itemName;
+  final int amountReceived;
+  final int amountRequested;
+
+  GridCard(
+      {this.imageUrl,
+      this.itemName,
+      this.amountReceived,
+      this.amountRequested});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +22,7 @@ class GridCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => DetailsPage(
-              title: "Shirt",
+              title: itemName,
             ),
           ),
         );
@@ -41,9 +48,7 @@ class GridCard extends StatelessWidget {
                         topRight: Radius.circular(20)),
                     color: Colors.white,
                     image: DecorationImage(
-                        image: NetworkImage(
-                            "https://pyxis.nymag.com/v1/imgs/d19/fc1/0de89f03dfa39fa0ff8b1fe838532f153b-031231-04.rsquare.w600.jpg"),
-                        fit: BoxFit.fill),
+                        image: NetworkImage(imageUrl), fit: BoxFit.fill),
                   ),
                 ),
               ),
@@ -51,7 +56,7 @@ class GridCard extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  'Shirt',
+                  itemName,
                 ),
               ),
               SizedBox(height: 8.0),
@@ -59,22 +64,22 @@ class GridCard extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: LinearPercentIndicator(
                   lineHeight: 14,
-                  percent: 0.75,
+                  percent: (amountReceived / amountRequested),
                   center: Text(
-                    "75%",
+                    "${((amountReceived / amountRequested) * 100).round()}%",
                     style: new TextStyle(fontSize: 12.0),
                   ),
                   backgroundColor: Colors.grey,
                   progressColor: Colors.blue,
                   linearStrokeCap: LinearStrokeCap.roundAll,
-                  trailing: Text("23/50"),
+                  trailing: Text("$amountReceived/$amountRequested"),
                 ),
               ),
               SizedBox(height: 8.0),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  'Church',
+                  'Orphanage',
                 ),
               ),
               SizedBox(height: 8.0),

@@ -12,7 +12,7 @@ class DrawerWidget extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            child: Text('Drawer Header'),
+            child: Text('User phone number'),
             decoration: BoxDecoration(
               color: Colors.blue,
             ),
@@ -29,6 +29,13 @@ class DrawerWidget extends StatelessWidget {
             title: Text('Donate item'),
             onTap: () {
               Navigator.pushReplacementNamed(context, '/second');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.shopping_basket),
+            title: Text('Organisation'),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/organisation');
             },
           ),
         ],
