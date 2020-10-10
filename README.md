@@ -5,7 +5,3 @@ Two Wish is the consumer side Flutter app of the TwoWish.jkt company that allows
   <img src="assets/images/Screenshot_20201010-053759.png" width="300" />
   <img src="assets/images/Screenshot_20201010-053803.png" width="300" />
 </p>
-
-
-![2wish](assets/images/Screenshot_20201010-053759.png)
-![2wish](assets/images/Screenshot_20201010-053803.png)<br>
