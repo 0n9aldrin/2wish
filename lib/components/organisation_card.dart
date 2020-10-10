@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/percent_indicator.dart';
-import 'package:two_wish/screens/details_page.dart';
+import 'package:two_wish/screens/organisation_details_page.dart';
 
-class GridCard extends StatelessWidget {
-  final String imageUrl;
-  final String itemName;
-  final int amountReceived;
-  final int amountRequested;
+class OrganisationCard extends StatelessWidget {
+  final String name;
+  final String image;
+  final String description;
+  final String location;
 
-  GridCard(
-      {this.imageUrl,
-      this.itemName,
-      this.amountReceived,
-      this.amountRequested});
+  OrganisationCard({this.name, this.image, this.description, this.location});
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +16,17 @@ class GridCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => DetailsPage(
-              title: itemName,
+            builder: (context) => OrganisationDetailsPage(
+              name: name,
+              description: description,
+              location: location,
+              image: image,
             ),
           ),
         );
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+        padding: EdgeInsets.all(5),
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(
@@ -48,34 +46,18 @@ class GridCard extends StatelessWidget {
                         topRight: Radius.circular(20)),
                     color: Colors.white,
                     image: DecorationImage(
-                        image: NetworkImage(imageUrl), fit: BoxFit.fill),
+                        image: NetworkImage(image), fit: BoxFit.fill),
                   ),
                 ),
               ),
-              SizedBox(height: 5.0),
+              SizedBox(height: 8.0),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  itemName,
+                  name,
                 ),
               ),
-              SizedBox(height: 5.0),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                child: LinearPercentIndicator(
-                  lineHeight: 17,
-                  percent: (amountReceived / amountRequested),
-                  center: Text(
-                    "${((amountReceived / amountRequested) * 100).round()}%",
-                    style: new TextStyle(fontSize: 10.0),
-                  ),
-                  backgroundColor: Colors.grey,
-                  progressColor: Colors.blue,
-                  linearStrokeCap: LinearStrokeCap.roundAll,
-                  trailing: Text("$amountReceived/$amountRequested"),
-                ),
-              ),
-              SizedBox(height: 5.0),
+              SizedBox(height: 8.0),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(

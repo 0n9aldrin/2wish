@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:two_wish/constants.dart';
 import 'package:two_wish/services/database.dart';
 
 class DetailsPage extends StatefulWidget {
@@ -58,7 +59,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       style: new TextStyle(fontSize: 12.0),
                     ),
                     backgroundColor: Colors.grey,
-                    progressColor: Colors.blue,
+                    progressColor: kPrimaryColour,
                     linearStrokeCap: LinearStrokeCap.roundAll,
                     trailing: Padding(
                       padding: EdgeInsets.only(left: 10),
@@ -93,8 +94,8 @@ class _DetailsPageState extends State<DetailsPage> {
                 Slider(
                   min: 0,
                   max: 23,
-                  inactiveColor: Colors.blue,
-                  activeColor: Colors.blue,
+                  inactiveColor: kPrimaryColour,
+                  activeColor: kPrimaryColour,
                   value: rating,
                   onChanged: (newRating) {
                     setState(() {
@@ -116,7 +117,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         databaseService.updateRequestsData(
                             documentID: (requestsLength + 1).toString(),
                             phoneNumber: '+6281284538316',
-                            itemId: '00001',
+                            itemId: (requestsLength + 1).toString(),
                             donationAmount: rating.round(),
                             note: myController.text);
                         databaseService.updateRequestNumber(

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:two_wish/models/organisation.dart';
+import 'package:two_wish/services/auth.dart';
 
 import '../components/grid_card.dart';
-import '../drawer.dart';
+import '../components/drawer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _HomePageState extends State<HomePage> {
     List<Widget> charityTabs = [];
     List<Widget> charityScrollBars = [];
     final organisations = Provider.of<List<Organisation>>(context) ?? [];
+    AuthService authService = AuthService();
 
     for (int x = 0; x < organisations.length; x++) {
       charityScrollBars.add(
@@ -29,6 +31,7 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
               child: GridView.count(
                 crossAxisCount: 2,
+                childAspectRatio: 0.65,
                 children: List.generate(organisations[x].items.length, (index) {
                   return GridCard(
                     itemName: organisations[x].items[index]['Item'],
@@ -58,6 +61,14 @@ class _HomePageState extends State<HomePage> {
         child: Scaffold(
           drawer: DrawerWidget(context: context),
           appBar: AppBar(
+            actions: [
+              IconButton(
+                icon: Icon(Icons.exit_to_app),
+                onPressed: () async {
+                  await authService.signOut();
+                },
+              ),
+            ],
             title: Text("2WISH.JKT"),
             bottom: TabBar(
               tabs: charityTabs,

@@ -4,11 +4,14 @@ class Organisation {
   String organisationId;
   String location;
   List<dynamic> items;
+  String images;
 
-  Organisation(
-      {this.name,
-      this.description,
-      this.organisationId,
-      this.location,
-      this.items});
+  Organisation({
+    this.name,
+    this.description,
+    this.organisationId,
+    this.location,
+    this.items,
+    this.images,
+  });
 }
