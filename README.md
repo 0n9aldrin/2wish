@@ -2,8 +2,7 @@
 Two Wish is the consumer side Flutter app of the TwoWish.jkt company that allows users to donate and contact various organisations that need donations. Users look through many organisations and determine how much they want to donate.
 
 ## 🔧 Technologies & Tools
-<a href="https://firebase.google.com"><img src="https://img.shields.io/badge/Firebase-Firestore-informational?style=flat&logo=firebase-idea&logoColor=white&color=2bbc8a" />
-![](https://img.shields.io/badge/Firebase-Firestore-informational?style=flat&logo=firebase-idea&logoColor=white&color=2bbc8a)
+<a href="https://firebase.google.com"><img src="https://img.shields.io/badge/Firebase-Firestore-informational?style=flat&logo=firebase&logoColor=white&color=2bbc8a" />
 ![](https://img.shields.io/badge/Flutter-percent_indicator-informational?style=flat&logo=flutter&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Flutter-cloud_firestore-informational?style=flat&logo=flutter&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Flutter-provider-informational?style=flat&logo=flutter&logoColor=white&color=2bbc8a)
